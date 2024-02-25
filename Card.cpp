@@ -26,3 +26,8 @@ int Card::getPoints()
 {
 	return this->pointsInCaseOfVictory.at(this->type);
 }
+
+CardType Card::getType()
+{
+	return this->type;
+}

@@ -16,8 +16,10 @@ private:
 	static std::map<CardType, int> pointsInCaseOfVictory;
 
 public:
+	Card() = default;
 	Card(CardType type);
 	bool winsAgainst(Card* opponent);
 	int getPoints();
+	CardType getType();
 };
 
