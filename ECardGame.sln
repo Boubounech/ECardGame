@@ -5,6 +5,11 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECardGame", "ECardGame.vcxproj", "{A5BBD66D-BA77-4737-80D9-61DADBA64D75}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestECardGame", "..\TestECardGame\TestECardGame.vcxproj", "{96242C97-4821-42CD-B2CC-37539AEE2863}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A5BBD66D-BA77-4737-80D9-61DADBA64D75} = {A5BBD66D-BA77-4737-80D9-61DADBA64D75}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{A5BBD66D-BA77-4737-80D9-61DADBA64D75}.Release|x64.Build.0 = Release|x64
 		{A5BBD66D-BA77-4737-80D9-61DADBA64D75}.Release|x86.ActiveCfg = Release|Win32
 		{A5BBD66D-BA77-4737-80D9-61DADBA64D75}.Release|x86.Build.0 = Release|Win32
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Debug|x64.ActiveCfg = Debug|x64
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Debug|x64.Build.0 = Debug|x64
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Debug|x86.ActiveCfg = Debug|Win32
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Debug|x86.Build.0 = Debug|Win32
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Release|x64.ActiveCfg = Release|x64
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Release|x64.Build.0 = Release|x64
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Release|x86.ActiveCfg = Release|Win32
+		{96242C97-4821-42CD-B2CC-37539AEE2863}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
