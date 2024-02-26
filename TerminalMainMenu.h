@@ -1,13 +1,14 @@
+#pragma once
 #include <iostream>
 #include <sstream>
 #include "MainMenu.h"
-#pragma once
 
 class TerminalMainMenu : public MainMenu
 {
 public:
-	void setUp();
-	void start();
-	void quit();
-	void processUserInput();
+	TerminalMainMenu(GameManager* gm) : MainMenu(gm) {};
+	void setUp() override;
+	void start() override;
+	void quit() override;
+	void processUserInput() override;
 };

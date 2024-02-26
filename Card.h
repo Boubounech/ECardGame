@@ -1,5 +1,5 @@
-#include <map>
 #pragma once
+#include <map>
 
 enum CardType {
 	CITIZEN,

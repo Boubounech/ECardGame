@@ -5,13 +5,14 @@ void TerminalMainMenu::setUp()
 	std::cout <<
 		"Welcome to E-Card game!\n"
 		"Check the README for rules if you need them.\n"
-		"Enter 1 to play.\n"
-		"Enter 2 to quit.\n";
+		" - Enter 1 to play.\n"
+		" - Enter 2 to quit.\n";
 }
 
 void TerminalMainMenu::start()
 {
 	std::cout << "Starting game..." << std::endl;
+	MainMenu::start();
 }
 
 void TerminalMainMenu::quit()

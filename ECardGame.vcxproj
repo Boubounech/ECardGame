@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardDealer.cpp" />
     <ClCompile Include="ECardGame.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TerminalBoard.cpp" />
     <ClCompile Include="TerminalMainMenu.cpp" />
@@ -136,6 +138,8 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardDealer.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TerminalBoard.h" />

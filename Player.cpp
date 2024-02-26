@@ -2,7 +2,13 @@
 
 Player::Player()
 {
-
+	this->cards = std::array<Card, 5> {
+			Card(CITIZEN),
+			Card(CITIZEN),
+			Card(CITIZEN),
+			Card(CITIZEN),
+			Card(CITIZEN)
+	};
 }
 
 void Player::giveCards(std::array<Card, 5> &cards) 
