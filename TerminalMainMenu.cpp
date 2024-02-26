@@ -31,6 +31,6 @@ void TerminalMainMenu::processUserInput()
 		quit();
 	}
 	else {
-		std::cout << "None";
+		this->processUserInput();
 	}
 }
