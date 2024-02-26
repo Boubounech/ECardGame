@@ -17,8 +17,8 @@ protected:
 	bool started = false;
 
 public:
-	GameManager(Board* board, Player* p1, Player* p2);
-	virtual void startGame(size_t nbTotalTurns = 1);
+	GameManager(Board* board, Player* p1, Player* p2, size_t nbTurns = NB_TURNS);
+	virtual void startGame();
 	virtual void startTurn();
 	bool hasGameStarted() { return this->started; }
 };

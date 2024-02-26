@@ -1,19 +1,18 @@
 #include "GameManager.h"
 
-GameManager::GameManager(Board* board, Player* p1, Player* p2)
+GameManager::GameManager(Board* board, Player* p1, Player* p2, size_t nbTurns)
 {
-	this->nbTotalTurns = 0;
+	this->nbTotalTurns = nbTurns;
 	this->board = board;
 	this->player1 = p1;
 	this->player2 = p2;
 }
 
-void GameManager::startGame(size_t nbTotalTurns)
+void GameManager::startGame()
 {
-	this->nbTotalTurns = nbTotalTurns;
 	this->started = true;
 	this->currentTurn++;
-	while (this->currentTurn <= nbTotalTurns) {
+	while (this->currentTurn <= this->nbTotalTurns) {
 		this->startTurn();
 		this->currentTurn++;
 	}
@@ -35,12 +34,14 @@ void GameManager::startTurn()
 			player2->getCardAt(cardChosenP2))) {
 			this->board->displayTurnWin(player1);
 			this->board->displayTurnLose(player2);
+			player1->addScore(player1->getCardAt(cardChosenP1)->getPoints());
 			endOfTurn = true;
 		}
 		else if (player2->getCardAt(cardChosenP2)->winsAgainst(
 			player1->getCardAt(cardChosenP1))) {
 			this->board->displayTurnLose(player1);
 			this->board->displayTurnWin(player2);
+			player2->addScore(player2->getCardAt(cardChosenP2)->getPoints());
 			endOfTurn = true;
 		}
 		else {
