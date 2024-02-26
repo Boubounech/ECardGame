@@ -3,13 +3,15 @@
 std::map<CardType, CardType> Card::winsAgainstMap = {
 	{ CITIZEN, SLAVE },
 	{ KING, CITIZEN },
-	{ SLAVE, KING }
+	{ SLAVE, KING },
+	{ NONE, NONE }
 };
 
 std::map<CardType, int> Card::pointsInCaseOfVictory = {
 	{ CITIZEN, 1 },
 	{ KING, 1 },
-	{ SLAVE, 5 }
+	{ SLAVE, 5 },
+	{ NONE, 0 }
 };
 
 Card::Card(CardType type)

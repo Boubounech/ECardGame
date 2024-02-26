@@ -3,7 +3,8 @@
 std::map<CardType, char> TerminalBoard::cardRenderMap = {
 	{ CITIZEN, 'C' },
 	{ KING, 'K' },
-	{ SLAVE, 'S' }
+	{ SLAVE, 'S' },
+	{ NONE, '#'}
 };
 
 std::string TerminalBoard::getCardRender(Card* card)
@@ -18,11 +19,11 @@ std::string TerminalBoard::getCardRender(Card* card)
 void TerminalBoard::mainScreen(Player* p1, Player* p2)
 {
 	std::string mainScreen = "";
-	for (size_t i = 0; i < 5; i++) {
+	for (size_t i = 0; i < p1->getNbOfCards(); i++) {
 		mainScreen += this->getCardRender(p1->getCardAt(i));
 	}
 	mainScreen += "\n\n\n";
-	for (size_t i = 0; i < 5; i++) {
+	for (size_t i = 0; i < p2->getNbOfCards(); i++) {
 		mainScreen += this->getCardRender(p2->getCardAt(i));
 	}
 	std::cout << mainScreen << std::endl;
@@ -31,7 +32,7 @@ void TerminalBoard::mainScreen(Player* p1, Player* p2)
 void TerminalBoard::cardSelection(Player* player)
 {
 	std::cout << std::endl << "Select the card to play:" << std::endl;
-	for (size_t i = 0; i < 5; i++) {
+	for (size_t i = 0; i < player->getNbOfCards(); i++) {
 		std::cout << " " << i << "." << this->getCardRender(player->getCardAt(i)) << std::endl;
 	}
 }

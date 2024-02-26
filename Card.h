@@ -4,7 +4,8 @@
 enum CardType {
 	CITIZEN,
 	KING,
-	SLAVE
+	SLAVE,
+	NONE
 };
 
 class Card

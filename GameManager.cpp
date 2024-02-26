@@ -22,9 +22,9 @@ void GameManager::startTurn()
 {
 	CardDealer::dealCards(this->player1, this->player2);
 	bool endOfTurn = false;
-	this->board->mainScreen(this->player1, this->player2);
 
 	do {
+		this->board->mainScreen(this->player1, this->player2);
 		this->board->cardSelection(this->player1);
 		int cardChosenP1 = this->board->processUserInputForCardSelection(this->player1);
 		this->board->cardSelection(this->player2);
@@ -45,6 +45,8 @@ void GameManager::startTurn()
 			endOfTurn = true;
 		}
 		else {
+			player1->removeCard(cardChosenP1);
+			player2->removeCard(cardChosenP2);
 			this->board->displayTurnEquality();
 		}
 	} while (!endOfTurn);
