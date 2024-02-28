@@ -11,10 +11,10 @@ private:
 	std::string getCardRender(Card* card);
 
 public:
-	void mainScreen(Player* p1, Player* p2) override;
-	void cardSelection(Player* player) override;
-	int processUserInputForCardSelection(Player* player) override;
-	void displayTurnWin(Player* player) override;
-	void displayTurnLose(Player* player) override;
+	void mainScreen(Deck* cards) override;
+	void cardSelection(Deck* cards) override;
+	int processUserInputForCardSelection(Deck* cards) override;
+	void displayTurnWin(std::string playerName) override;
+	void displayTurnLose(std::string playerName) override;
 	void displayTurnEquality() override;
 };

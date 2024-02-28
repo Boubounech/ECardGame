@@ -1,60 +1,55 @@
 #include "Player.h"
 
-Player::Player()
+Player::Player(Board* board)
 {
-	this->cards = std::array<Card, 5> {
-			Card(NONE),
-			Card(NONE),
-			Card(NONE),
-			Card(NONE),
-			Card(NONE)
-	};
+	this->board = board;
+	this->deck = new Deck();
 }
 
-void Player::giveCards(std::array<Card, 5> &cards) 
+int Player::getChosenCard()
 {
-	this->cards = cards;
+	this->board->mainScreen(this->deck);
+	this->board->cardSelection(this->deck);
+	return this->board->processUserInputForCardSelection(this->deck);
 }
 
-Card* Player::getCardAt(int index)
+void Player::displayVictory()
 {
-	return &this->cards[this->getIndexWithNone(index)];
+	this->board->displayTurnWin(this->name);
 }
 
-int Player::getIndexWithNone(int index)
+void Player::displayDefeat()
 {
-	size_t realCardCounter = 0;
-	for (int i = 0; i < this->cards.size(); i++) {
-		if (this->cards[i].getType() != NONE) {
-			if (realCardCounter == index) {
-				return i;
-			}
-			realCardCounter++;
-		}
-	}
-	return 0;
+	this->board->displayTurnLose(this->name);
 }
+
+void Player::displayEquality()
+{
+	this->board->displayTurnEquality();
+}
+
 
 void Player::addScore(int score)
 {
 	this->score += score;
 }
 
+void Player::giveCards(Deck* deck)
+{
+	this->deck = deck;
+}
+
+Card* Player::getCardAt(int index)
+{
+	return this->deck->getCardAt(index);
+}
+
 size_t Player::getNbOfCards()
 {
-	size_t nbCards = 0;
-	for (Card c : this->cards)
-	{
-		if (c.getType() != NONE) {
-			nbCards++;
-		}
-	}
-	return nbCards;
+	return this->deck->getNbOfCards();
 }
 
 void Player::removeCard(int index)
 {
-	if (index >= 0 && index < this->getNbOfCards()) {
-		this->cards[this->getIndexWithNone(index)] = Card(NONE);
-	}
+	this->deck->removeCard(index);
 }

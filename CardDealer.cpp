@@ -15,11 +15,11 @@ void CardDealer::dealCards(Player* p1, Player* p2)
 
 	bool isKingForP1 = randomBool(seed);
 	if (isKingForP1) {
-		p1->giveCards(kingArray);
-		p2->giveCards(slaveArray);
+		p1->giveCards(new Deck(kingArray));
+		p2->giveCards(new Deck(slaveArray));
 	}
 	else {
-		p1->giveCards(slaveArray);
-		p2->giveCards(kingArray);
+		p1->giveCards(new Deck(slaveArray));
+		p2->giveCards(new Deck(kingArray));
 	}
 }

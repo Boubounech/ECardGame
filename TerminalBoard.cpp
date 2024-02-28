@@ -16,53 +16,54 @@ std::string TerminalBoard::getCardRender(Card* card)
 	return cardRender;
 }
 
-void TerminalBoard::mainScreen(Player* p1, Player* p2)
+void TerminalBoard::mainScreen(Deck* cards)
 {
 	std::string mainScreen = "";
-	for (size_t i = 0; i < p1->getNbOfCards(); i++) {
-		mainScreen += this->getCardRender(p1->getCardAt(i));
+	Card* tempCard = new Card(NONE);
+	for (size_t i = 0; i < cards->getNbOfCards(); i++) {
+		mainScreen += this->getCardRender(tempCard);
 	}
+	delete tempCard;
 	mainScreen += "\n\n\n";
-	for (size_t i = 0; i < p2->getNbOfCards(); i++) {
-		mainScreen += this->getCardRender(p2->getCardAt(i));
+	for (size_t i = 0; i < cards->getNbOfCards(); i++) {
+		mainScreen += this->getCardRender(cards->getCardAt(i));
 	}
 	std::cout << mainScreen << std::endl;
 }
 
-void TerminalBoard::cardSelection(Player* player)
+void TerminalBoard::cardSelection(Deck* cards)
 {
 	std::cout << std::endl << "Select the card to play:" << std::endl;
-	for (size_t i = 0; i < player->getNbOfCards(); i++) {
-		std::cout << " " << i << "." << this->getCardRender(player->getCardAt(i)) << std::endl;
+	for (size_t i = 0; i < cards->getNbOfCards(); i++) {
+		std::cout << " " << i << "." << this->getCardRender(cards->getCardAt(i)) << std::endl;
 	}
 }
 
-int TerminalBoard::processUserInputForCardSelection(Player* player)
+int TerminalBoard::processUserInputForCardSelection(Deck* cards)
 {
 	std::string response;
 	std::getline(std::cin, response);
 	int cardChosen = std::stoi(response);
-	if (cardChosen >= 0 && cardChosen < 5) {
+	if (cardChosen >= 0 && cardChosen < cards->getNbOfCards()) {
 		std::cout 
-			<< "[" << player->getName() << "] "
-			<< "Card chosen: " << cardChosen << "." 
-			<< this->getCardRender(player->getCardAt(cardChosen)) << std::endl;
+			<< " Card chosen: " << cardChosen << "." 
+			<< this->getCardRender(cards->getCardAt(cardChosen)) << std::endl;
 		return cardChosen;
 	}
 	else {
-		std::cout << "Please enter a valid number." << std::endl;
-		return this->processUserInputForCardSelection(player);
+		std::cout << " Please enter a valid number." << std::endl;
+		return this->processUserInputForCardSelection(cards);
 	}
 }
 
-void TerminalBoard::displayTurnWin(Player* player)
+void TerminalBoard::displayTurnWin(std::string playerName)
 {
-	std::cout << player->getName() << " wins this turn!" << std::endl << std::endl;
+	std::cout << playerName << " wins this turn!" << std::endl << std::endl;
 }
 
-void TerminalBoard::displayTurnLose(Player* player)
+void TerminalBoard::displayTurnLose(std::string playerName)
 {
-	std::cout << player->getName() << " loses this turn!" << std::endl << std::endl;
+	std::cout << playerName << " loses this turn!" << std::endl << std::endl;
 }
 
 void TerminalBoard::displayTurnEquality()
