@@ -12,7 +12,7 @@ int main()
     Player* p2 = new Player(boardP2);
     p2->setName("Player 2");
 
-    GameManager* gameManager = new GameManager(p1, p2);
+    GameManager* gameManager = new GameManager();
     
     MainMenu* mainMenu = new TerminalMainMenu(gameManager);
     mainMenu->setUp();

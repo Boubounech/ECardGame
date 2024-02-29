@@ -7,7 +7,7 @@ class GameManager
 {
 private:
 	const static size_t NB_TURNS = 6;
-	size_t nbTotalTurns;
+	size_t nbTotalTurns = NB_TURNS;
 	Player* player1;
 	Player* player2;
 	size_t currentTurn = 0;
@@ -16,8 +16,12 @@ protected:
 	bool started = false;
 
 public:
-	GameManager(Player* p1, Player* p2, size_t nbTurns = NB_TURNS);
+	GameManager();
+	size_t getNumberOfTurns() { return this->nbTotalTurns; }
+	void setNumberOfTurns(size_t nbTurns) { this->nbTotalTurns = nbTurns; }
+	void addPlayer(Player* player);
 	virtual void startGame();
 	virtual void startTurn();
+	bool isGameReady();
 	bool hasGameStarted() { return this->started; }
 };

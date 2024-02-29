@@ -1,19 +1,28 @@
 #include "GameManager.h"
 
-GameManager::GameManager(Player* p1, Player* p2, size_t nbTurns)
+GameManager::GameManager()
 {
-	this->nbTotalTurns = nbTurns;
-	this->player1 = p1;
-	this->player2 = p2;
+}
+
+void GameManager::addPlayer(Player* player)
+{
+	if (this->player1 == NULL) {
+		this->player1 = player;
+	}
+	else {
+		this->player2 = player;
+	}
 }
 
 void GameManager::startGame()
 {
-	this->started = true;
-	this->currentTurn++;
-	while (this->currentTurn <= this->nbTotalTurns) {
-		this->startTurn();
+	if (this->isGameReady()) {
+		this->started = true;
 		this->currentTurn++;
+		while (this->currentTurn <= this->nbTotalTurns) {
+			this->startTurn();
+			this->currentTurn++;
+		}
 	}
 }
 
@@ -47,4 +56,9 @@ void GameManager::startTurn()
 			this->player2->displayEquality();
 		}
 	} while (!endOfTurn);
+}
+
+bool GameManager::isGameReady()
+{
+	return this->player1 != NULL && this->player2 != NULL;
 }
