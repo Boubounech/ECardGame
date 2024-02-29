@@ -15,19 +15,19 @@ private:
 public:
 	Player(Board* board);
 
-	int getChosenCard();
-	void displayVictory();
-	void displayDefeat();
-	void displayEquality();
+	virtual int getChosenCard();
+	virtual void displayVictory();
+	virtual void displayDefeat();
+	virtual void displayEquality();
 
-	void addScore(int score);
-	int getScore() { return this->score; }
+	virtual void addScore(int score);
+	virtual int getScore() { return this->score; }
 
-	void giveCards(Deck* deck);
-	Card* getCardAt(int index);
-	size_t getNbOfCards();
-	void removeCard(int index);
+	virtual void giveCards(Deck* deck);
+	virtual Card* getCardAt(int index);
+	virtual size_t getNbOfCards();
+	virtual void removeCard(int index);
 
-	void setName(std::string name) { this->name = name; }
-	std::string getName() { return this->name; }
+	virtual void setName(std::string name) { this->name = name; }
+	virtual std::string getName() { return this->name; }
 };

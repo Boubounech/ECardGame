@@ -14,6 +14,20 @@ std::map<CardType, int> Card::pointsInCaseOfVictory = {
 	{ NONE, 0 }
 };
 
+std::map<CardType, char> Card::cardToIdentifier = {
+	{ CITIZEN, 'C'},
+	{ KING, 'K'},
+	{ SLAVE, 'S'},
+	{ NONE, '#'}
+};
+
+std::map<char, CardType> Card::identifierToCard = {
+	{ 'C', CITIZEN},
+	{ 'K', KING },
+	{ 'S', SLAVE },
+	{ '#', NONE }
+};
+
 Card::Card(CardType type)
 {
 	this->type = type;
@@ -32,4 +46,14 @@ int Card::getPoints()
 CardType Card::getType()
 {
 	return this->type;
+}
+
+char Card::getCardIdentifier()
+{
+	return this->cardToIdentifier.at(this->type);
+}
+
+Card Card::createFromIdentifier(char id)
+{
+	return Card(identifierToCard.at(id));
 }
