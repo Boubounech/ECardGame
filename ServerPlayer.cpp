@@ -7,19 +7,29 @@ void ServerPlayer::awaitConnection()
 
 int ServerPlayer::getChosenCard()
 {
-	return 0;
+	char message[10] = "PLA";
+	this->socket->sendData(message, 10);
+	this->socket->receiveData(message, 10);
+	int valueChosen = message[4] - '0'; // message[4] is the number
+	return valueChosen;
 }
 
 void ServerPlayer::displayVictory()
 {
+	char message[10] = "VIC";
+	this->socket->sendData(message, 10);
 }
 
 void ServerPlayer::displayDefeat()
 {
+	char message[10] = "DEF";
+	this->socket->sendData(message, 10);
 }
 
 void ServerPlayer::displayEquality()
 {
+	char message[10] = "EQU";
+	this->socket->sendData(message, 10);
 }
 
 void ServerPlayer::giveCards(Deck* deck)
