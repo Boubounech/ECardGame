@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardDealer.cpp" />
+    <ClCompile Include="ClientPlayer.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="ECardGame.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardDealer.h" />
+    <ClInclude Include="ClientPlayer.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="EmptyBoard.h" />
     <ClInclude Include="GameManager.h" />
@@ -151,9 +153,6 @@
     <ClInclude Include="Socket\TcpClientSocket.hpp" />
     <ClInclude Include="Socket\TcpServerSocket.hpp" />
     <ClInclude Include="Socket\TcpSocket.hpp" />
-    <ClInclude Include="Socket\UdpClientSocket.hpp" />
-    <ClInclude Include="Socket\UdpServerSocket.hpp" />
-    <ClInclude Include="Socket\UdpSocket.hpp" />
     <ClInclude Include="TerminalBoard.h" />
     <ClInclude Include="TerminalMainMenu.h" />
   </ItemGroup>

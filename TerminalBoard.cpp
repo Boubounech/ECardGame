@@ -1,17 +1,9 @@
 #include "TerminalBoard.h"
 
-std::map<CardType, char> TerminalBoard::cardRenderMap = {
-	{ CITIZEN, 'C' },
-	{ KING, 'K' },
-	{ SLAVE, 'S' },
-	{ NONE, '#'}
-};
-
 std::string TerminalBoard::getCardRender(Card* card)
 {
-	char value = this->cardRenderMap.at(card->getType());
 	std::string cardRender = " |";
-	cardRender += value;
+	cardRender += card->getCardIdentifier();
 	cardRender += "| ";
 	return cardRender;
 }

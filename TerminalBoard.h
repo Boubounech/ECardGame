@@ -7,7 +7,6 @@
 class TerminalBoard : public Board
 {
 private:
-	static std::map<CardType, char> cardRenderMap;
 	std::string getCardRender(Card* card);
 
 public:

@@ -13,6 +13,9 @@ int main()
     p2->setName("Player 2");
 
     GameManager* gameManager = new GameManager();
+    gameManager->addPlayer(p1);
+    gameManager->addPlayer(p2);
+    gameManager->setNumberOfTurns(1);
     
     MainMenu* mainMenu = new TerminalMainMenu(gameManager);
     mainMenu->setUp();
